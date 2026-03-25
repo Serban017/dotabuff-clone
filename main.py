@@ -1,7 +1,7 @@
 import requests
 from heroes import get_hero_name
+from match import get_match_details
 from pprint import pprint
-
 
 player_id = input("Enter player ID: ")
 
@@ -19,3 +19,21 @@ for match in match_data:
         print(f"Match {match['match_id']} - WIN - Hero: {hero_table[match['hero_id']]} - KDA: {match['kills']}/{match['deaths']}/{match['assists']}")
     else:
         print(f"Match {match['match_id']} - LOSE - Hero: {hero_table[match['hero_id']]} - KDA: {match['kills']}/{match['deaths']}/{match['assists']}")
+
+
+match_id = input("Enter a match ID: ")
+match_details = get_match_details(match_id)
+
+
+print("--- RADIANT ---")
+for player in match_details['players']: 
+
+    if player['player_slot'] <= 4: 
+        print(f"Hero {hero_table[player['hero_id']]} - KDA: {player['kills']}/{player['deaths']}/{player['assists']}")
+
+print("--- DIRE ---")   
+for player in match_details['players']: 
+
+    if player['player_slot'] >= 128: 
+        print(f"Hero {hero_table[player['hero_id']]} - KDA: {player['kills']}/{player['deaths']}/{player['assists']}")
+    
