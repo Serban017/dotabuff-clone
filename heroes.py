@@ -3,9 +3,6 @@ import os
 import json
 from pprint import pprint
 
-
-
-
 def get_hero_name():
     
     if os.path.exists("heroes_data.json"):
@@ -24,4 +21,3 @@ def get_hero_name():
         hero_table[hero['id']] = hero['localized_name']
         
     return hero_table
-
