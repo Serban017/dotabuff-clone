@@ -31,10 +31,14 @@ elif option == "2":
     match_id = input("Enter a match ID: ")
     match_details = get_match_details(match_id)
 
+    if match_details["radiant_win"] == True:
+        print("Radiant WIN")
+    else:
+        print("Dire WIN")
 
     print("--- RADIANT ---")
     for player in match_details['players']: 
-
+        
         if player['player_slot'] <= 4: 
             print(f"Hero {hero_table[player['hero_id']]} - KDA: {player['kills']}/{player['deaths']}/{player['assists']}")
 
