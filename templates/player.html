@@ -14,6 +14,7 @@
                 <th>Hero</th>
                 <th>Team</th>
                 <th>KDA</th>
+                <th>Last Hits</th>
                 <th>Result</th>
             </tr>
         </thead>
@@ -24,6 +25,7 @@
                 <td>{{ hero_table[match.hero_id] }}</td>
                 <td class="{% if match.player_slot <= 4 %}text-success{% else %}text-danger{% endif %}">{% if match.player_slot <= 4 %}Radiant{% else %}Dire{% endif %}</td>
                 <td>{{ match.kills }}/{{ match.deaths }}/{{ match.assists }}</td>
+                <td>{{match.last_hits}}</td>
                 <td class="{% if match.result == 'WIN' %}text-success{% else %}text-danger{% endif %}">{{ match.result }}</td>
             </tr>
             {% endfor %}
